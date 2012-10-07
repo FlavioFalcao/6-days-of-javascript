@@ -6,6 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 
+
 var data = [
     { artist: 'Leonard Cohen', title: 'Everybody Knows', plays: 2 },
     { artist: 'Pixies',        title: 'Bone Machine',    plays: 4 },
@@ -16,26 +17,47 @@ var data = [
 ];
 
 var total_plays = function( data ) {
-    var sum = 0;
+    var total = 0;
 
     for ( var i=0; i < data.length; i++ ) {
-        sum += data[i].plays;
+        total += data[i].plays;
     }
 
-    return sum;
-};
+    return total;
+}
 
-console.log( total_plays(data) );
+var t = total_plays( data );
+// t is now 28
 
-
-var only_from_artist = function( data, artist ) {
-    var criteria = function( el ) {
+var songs_for_artist = function(data, artist) {
+    var criteria = function(el) {
         return el.artist === artist;
     };
 
     return data.filter( criteria );
 };
 
-console.dir( only_from_artist(data, 'Tom Waits'));
+
+
+
+var me = {
+    name: 'Ynon',
+    web: 'http://mobileweb.ynonperek.com'
+};
+
+var show = function( data ) {
+    var text = document.querySelector('#t2').innerHTML;
+    var template = Handlebars.compile( text );
+
+    var result_html = template( { items: data } );
+    document.querySelector('#result').innerHTML = result_html;
+};
+
+show ( songs_for_artist(data, 'Tom Waits') );
+
+
+
+
+
 
 

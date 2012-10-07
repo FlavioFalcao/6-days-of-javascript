@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Demo</title>
+</head>
+<body>
+
+    <div id="result">
+
+    </div>
+
+    <script type="text/template" id="t2">
+        <ul>
+            {{#each items}}
+                <li>{{artist}} - {{title}}</li>
+            {{/each}}
+        </ul>
+    </script>
+
+    <script type="text/template" id="t1">
+        <p>Hi ! My name is {{name}}
+            Visit me at:
+            <a href="{{web}}" target="_blank">My Website</a>
+        </p>
+    </script>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0.beta6/handlebars.min.js"></script>
+    <script src="demo1.js"></script>
+</body>
+</html>
+
+
